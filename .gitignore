@@ -1,3 +1,5 @@
 
 *.class
 *.class
+bin/UFClient.class
+*.class
