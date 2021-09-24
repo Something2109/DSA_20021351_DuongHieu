@@ -7,10 +7,13 @@ public class UFClient {
       while (!StdIn.isEmpty()) { 
          int p = StdIn.readInt(); 
          int q = StdIn.readInt(); 
-         if (!uf.connected(p, q)) { 
+         if (!connected(uf, p, q)) { 
             uf.union(p, q);
             StdOut.println(p + " " + q); 
          } 
       } 
    }
+   public static boolean connected(UF uf, int p, int q) {
+      return uf.find(p) == uf.find(q);
+  }
  }
