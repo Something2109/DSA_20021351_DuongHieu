@@ -1,3 +1,4 @@
+package Percolation;
 public class Tile2D {
     private int x, y,
                 tileID;

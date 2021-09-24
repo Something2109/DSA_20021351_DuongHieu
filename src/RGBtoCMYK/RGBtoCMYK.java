@@ -1,3 +1,5 @@
+package RGBtoCMYK;
+
 public class RGBtoCMYK {
     public static void main(String[] args) {
         RGB original = new RGB();
