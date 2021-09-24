@@ -18,7 +18,7 @@ public class Percolation2D {
         int tileCount = 0;
         Percolation2D per = new Percolation2D(n);
         per.settingUp();
-        while (!per.uf.connected((per.field - 2), (per.field - 1)) && tileCount < per.field - 2) {
+        while (!per.uf.connected((per.field - 2), (per.field - 1))) {
             per.addTile();
             tileCount ++;
         }
