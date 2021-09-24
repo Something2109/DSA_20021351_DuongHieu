@@ -3,3 +3,5 @@
 *.class
 bin/UFClient.class
 *.class
+.vscode/settings.json
+*.class
