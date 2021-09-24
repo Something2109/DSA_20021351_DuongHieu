@@ -1,3 +1,4 @@
+package UFClient;
 import edu.princeton.cs.algs4.*;
 
 public class UFClient { 
@@ -7,13 +8,9 @@ public class UFClient {
       while (!StdIn.isEmpty()) { 
          int p = StdIn.readInt(); 
          int q = StdIn.readInt(); 
-         if (!connected(uf, p, q)) { 
+         if (!uf.connected(p, q)) {
             uf.union(p, q);
             StdOut.println(p + " " + q); 
          } 
       } 
    }
-   public static boolean connected(UF uf, int p, int q) {
-      return uf.find(p) == uf.find(q);
-  }
- }
