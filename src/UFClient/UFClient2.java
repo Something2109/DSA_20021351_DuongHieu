@@ -1,5 +1,6 @@
+package UFClient;
 import edu.princeton.cs.algs4.*;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 public class UFClient2 {
     public static void main(String[] args) { 
@@ -12,7 +13,7 @@ public class UFClient2 {
            if (!uf.connected(p, q)) { 
                 uf.union(p, q);
                 count --;
-                StdOut.println(count + " (" + p + " " + q + ")" + " " + root.size()); 
+                StdOut.println(count + " (" + p + " " + q + ")" + " " + count); 
            } 
         } 
         if (count > 1) {
