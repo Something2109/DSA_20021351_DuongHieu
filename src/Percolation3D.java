@@ -7,7 +7,7 @@ public class Percolation3D {
 
     Percolation3D(int n) {
         edge = n;
-        field = n * n + 2;
+        field = n * n * n + 2;
         uf = new UF(field);
         tileStatus = new boolean[field];
         StdOut.println("Create field: " + edge + ", " + field);
@@ -28,22 +28,19 @@ public class Percolation3D {
     private void settingUp() {
         for (int i = 0; i < edge; i++) {
             for (int j = 0; j < edge; j++) {
-                Tile2D tile = new Tile2D(i, j, edge);
-                if (i == 0) {
-                    uf.union(field - 2, tile.getTileID());
-                }
-                else if (i == edge - 1){
-                    uf.union(field - 1, tile.getTileID());
-                }
+                Tile3D tile = new Tile3D(i, j, 0, edge);
+                uf.union(field - 2, tile.getTileID());
+                Tile3D tile1 = new Tile3D(i, j, edge - 1, edge);
+                uf.union(field - 1, tile1.getTileID());
             }
         }
         StdOut.println();
     }
 
     private void addTile() {
-        Tile2D tile;
+        Tile3D tile;
         do  {
-            tile = new Tile2D(edge);
+            tile = new Tile3D(edge);
         } 
         while (tileStatus[tile.getTileID()]);
         tileStatus[tile.getTileID()] = true;
@@ -52,18 +49,22 @@ public class Percolation3D {
         StdOut.println();
     }
 
-    private void connectTile(Tile2D tile) {
-        Tile2D nextTile = new Tile2D(tile, -1, 0, edge);
+    private void connectTile(Tile3D tile) {
+        Tile3D nextTile = new Tile3D(tile, -1, 0, 0,edge);
         unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 1, 0, edge);
+        nextTile.setFromTile(tile, 1, 0, 0, edge);
         unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 0, -1, edge);
+        nextTile.setFromTile(tile, 0, -1, 0, edge);
         unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 0, 1, edge);
+        nextTile.setFromTile(tile, 0, 1, 0, edge);
+        unionTile(tile, nextTile);
+        nextTile.setFromTile(tile, 0, 0, -1, edge);
+        unionTile(tile, nextTile);
+        nextTile.setFromTile(tile, 0, 0, 1, edge);
         unionTile(tile, nextTile);
     }
 
-    private void unionTile(Tile2D tile, Tile2D nextTile) {
+    private void unionTile(Tile3D tile, Tile3D nextTile) {
         if (nextTile.valid(edge) && tileStatus[nextTile.getTileID()]) {
             uf.union(tile.getTileID(), nextTile.getTileID());
             StdOut.println("Connect tile: " + tile.toString() + " " + nextTile.toString());
