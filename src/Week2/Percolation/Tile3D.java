@@ -1,4 +1,4 @@
-package Percolation;
+package Week2.Percolation;
 public class Tile3D {
     private int x, y, z,
                 tileID;
