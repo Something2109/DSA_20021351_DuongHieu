@@ -1,4 +1,4 @@
-package UFClient;
+package Week2.UFClient;
 import edu.princeton.cs.algs4.*;
 
 public class UFClient { 

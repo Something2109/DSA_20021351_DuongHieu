@@ -1,4 +1,4 @@
-package Percolation;
+package Week2.Percolation;
 import edu.princeton.cs.algs4.*;
 
 public class Percolation3D {

@@ -1,4 +1,4 @@
-package RGBtoCMYK;
+package Week2.RGBtoCMYK;
 import edu.princeton.cs.algs4.*;
 
 public class CMYK {
