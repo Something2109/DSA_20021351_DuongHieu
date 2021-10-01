@@ -22,7 +22,6 @@ public class BinarySearch {
 
     public static String balancedSums(List<Integer> arr) {
         // Write your code here
-        Collections.sort(arr);
         int sumLeft = 0;
         int sumRight = 0;
         for (int i = 1; i < arr.size(); i++) {
