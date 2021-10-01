@@ -16,45 +16,53 @@ public class Percolation3D {
         StdOut.println("Create field: " + side + ", " + field);
     }
 
-    public static void main(String[] args) {
-        int n = StdIn.readInt();
-        double count = 0;
-        for (int i = 1; i <= 100; i++) {
-            StdOut.println("Attemp " + i +"\n");
-            Percolation3D per = new Percolation3D(n);
-            count += per.run();;
-            StdOut.println("\n");
-        }
-        StdOut.println(count / (n * n * n * 100));
-    }
-
     public int run() {
-        settingUp();
-        while (!uf.connected((field - 2), (field - 1))) {
+        int[] node = edgeSettingUp();
+        while (!uf.connected(node[0], node[1])) {
             addTile();
             tileCount ++;
         }
         return tileCount;
     }
 
-    private void settingUp() {
+    private int[] sideSettingUp() {
+        int[] node = new int[2];
+        node[0] = field - 2;
+        node[1] = field - 1;
         for (int i = 0; i < side; i++) {
             for (int j = 0; j < side; j++) {
                 Tile3D tile = new Tile3D(i, j, 0, side);
-                uf.union(field - 2, tile.getTileID());
+                uf.union(node[0], tile.getTileID());
                 Tile3D tile1 = new Tile3D(i, j, side - 1, side);
-                uf.union(field - 1, tile1.getTileID());
+                uf.union(node[1], tile1.getTileID());
             }
         }
         StdOut.println();
+        return node;
+    }
+
+    private int[] edgeSettingUp() {
+        int[] node = new int[2];
+        Tile2D tile = new Tile2D();
+        tile.randomEdgeTile(side);
+        node[0] = tile.getTileID();
+        tileStatus[node[0]] = true;
+        StdOut.print("Edge 1: " + tile.toString());
+        while (node[0] == tile.getTileID()) {
+            tile.randomEdgeTile(side);
+        }
+        node[1] = tile.getTileID();
+        tileStatus[node[1]] = true;
+        StdOut.println(" Edge 2: " + tile.toString());
+        StdOut.println();
+        return node;
     }
 
     private void addTile() {
         Tile3D tile;
         do  {
             tile = new Tile3D(side);
-        } 
-        while (tileStatus[tile.getTileID()]);
+        } while (tileStatus[tile.getTileID()]);
         tileStatus[tile.getTileID()] = true;
         StdOut.println("Open tile: " + tile.toString());
         connectTile(tile);
@@ -62,18 +70,10 @@ public class Percolation3D {
     }
 
     private void connectTile(Tile3D tile) {
-        Tile3D nextTile = new Tile3D(tile, -1, 0, 0,side);
-        unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 1, 0, 0, side);
-        unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 0, -1, 0, side);
-        unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 0, 1, 0, side);
-        unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 0, 0, -1, side);
-        unionTile(tile, nextTile);
-        nextTile.setFromTile(tile, 0, 0, 1, side);
-        unionTile(tile, nextTile);
+        Tile3D[] nextTile = tile.nearByTile(side);
+        for (int i = 0; i < nextTile.length; i++) {
+            unionTile(tile, nextTile[i]);
+        }
     }
 
     private void unionTile(Tile3D tile, Tile3D nextTile) {

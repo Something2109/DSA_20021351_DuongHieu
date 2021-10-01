@@ -3,33 +3,54 @@ public class Tile3D {
     private int x, y, z,
                 tileID;
 
-    Tile3D (int edge) {
-        this.x = (int) Math.round(Math.random() * (edge - 1));
-        this.y = (int) Math.round(Math.random() * (edge - 1));
-        this.z = (int) Math.round(Math.random() * (edge - 1));
-        this.tileID = x * edge + y + z * edge * edge;
+    Tile3D() {
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+        this.tileID = 0;
     }
 
-    Tile3D (int x, int y, int z, int edge) {
+    Tile3D (int side) {
+        this.x = (int) Math.round(Math.random() * (side - 1));
+        this.y = (int) Math.round(Math.random() * (side - 1));
+        this.z = (int) Math.round(Math.random() * (side - 1));
+        this.tileID = x * side + y + z * side * side;
+    }
+
+    Tile3D (int x, int y, int z, int side) {
         this.x = x;
         this.y = y;
         this.z = z;
-        tileID = x * edge + y + z * edge * edge;
+        this.tileID = x * side + y + z * side * side;
     }
 
-    Tile3D (Tile3D tile, int xRelative, int yRelative, int zRelative, int edge) {
-        setFromTile(tile, xRelative, yRelative, zRelative, edge);
+    Tile3D (Tile3D tile, int xRelative, int yRelative, int zRelative, int side) {
+        this.x = tile.x + xRelative; 
+        this.y = tile.y + yRelative;
+        this.z = tile.z + zRelative;
+        this.tileID = this.x * side + this.y + this.z * side * side;
+    }
+
+    void randomEdgeTile(int side) {
+        x = (int) (Math.round(Math.random()) * (side - 1));
+        y = (int) (Math.round(Math.random()) * (side - 1));
+        z = (int) (Math.round(Math.random()) * (side - 1));
+        this.tileID = this.x * side + this.y + this.z * side * side;
     }
 
     public int getTileID() {
         return tileID;
-    }
+    }        
 
-    public void setFromTile(Tile3D tile, int xRelative, int yRelative, int zRelative, int edge) {
-        this.x = tile.x + xRelative; 
-        this.y = tile.y + yRelative;
-        this.z = tile.z + zRelative;
-        this.tileID = this.x * edge + this.y + this.z * edge * edge;
+    public Tile3D[] nearByTile(int side) {
+        Tile3D[] nearByTile = new Tile3D[6];
+        nearByTile[0] = new Tile3D(this, -1, 0, 0,side);
+        nearByTile[1] = new Tile3D(this, 1, 0, 0, side);
+        nearByTile[2] = new Tile3D(this, 0, -1, 0, side);
+        nearByTile[3] = new Tile3D(this, 1, 0, 0, side);
+        nearByTile[4] = new Tile3D(this, 0, 0, -1, side);
+        nearByTile[5] = new Tile3D(this, 0, 0, 1, side);
+        return nearByTile;
     }
 
     public boolean valid(int edge) {
