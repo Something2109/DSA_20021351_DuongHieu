@@ -16,8 +16,13 @@ public class Percolation2D {
         StdOut.println("Create field: " + side + ", " + field);
     }
 
-    public int run() {
-        int[] node = edgeSettingUp();
+    public int run(String type) {
+        int[] node;
+        if (type == "side") {
+            node = sideSettingUp();
+        } else {
+            node = edgeSettingUp();
+        }
         while (!uf.connected(node[0], node[1])) {
             addTile();
             tileCount ++;

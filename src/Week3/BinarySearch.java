@@ -22,9 +22,9 @@ public class BinarySearch {
 
     public static String balancedSums(List<Integer> arr) {
         // Write your code here
-        Collections.sort(arr);
         int sumLeft = 0;
         int sumRight = 0;
+
         for (int i = 1; i < arr.size(); i++) {
             sumRight = sumRight + arr.get(i);
         }
@@ -113,6 +113,24 @@ public class BinarySearch {
             }
         }
         System.out.println(change);
+    }
+
+    public static int threeSum(List<Integer> q) {
+        Collections.sort(q);
+        int count = 0;
+        for (int i = 0; i < q.size() - 2; i++) {
+            int down = i + 1;
+            int up = q.size() - 1;
+            while (up > down) {
+                if (-(q.get(up) + q.get(down)) > q.get(i)) {
+                    up--;
+                } else if (-(q.get(up) + q.get(down)) < q.get(i)) {
+                    down++;
+                } else {
+                    StdOut.println(q.get(i) + " " + q.get(down) + " " + q.get(up));
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {

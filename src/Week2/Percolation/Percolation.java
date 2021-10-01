@@ -11,7 +11,7 @@ public class Percolation {
         for (int i = 1; i <= test; i++) {
             StdOut.println("Attemp " + i +"\n");
             Percolation3D per = new Percolation3D(n);
-            count += per.run();
+            count += per.run("side");
             StdOut.println("\n");
         }
         StdOut.println(count / (n * n * n * test));
