@@ -131,6 +131,7 @@ public class BinarySearch {
                 }
             }
         }
+        return count;
     }
 
     public static void main(String[] args) {
