@@ -70,15 +70,12 @@ public class Solution {
     public static SinglyLinkedListNode reverse(SinglyLinkedListNode llist) {
         // Write your code here
         SinglyLinkedListNode pos = llist;
-        ArrayList<Integer> data = new ArrayList<Integer>();
+        SinglyLinkedListNode head = new SinglyLinkedListNode(pos.data);
+        pos = pos.next;
         while (pos != null) {
-            data.add(pos.data);
-            pos = pos.next;
-        }
-        SinglyLinkedListNode head = new SinglyLinkedListNode(data.get(data.size() - 1));
-        pos = head;
-        for (int i = data.size() - 2; i >= 0; i--) {
-            pos.next = new SinglyLinkedListNode(data.get(i));
+            SinglyLinkedListNode next = head;
+            head = new SinglyLinkedListNode(pos.data);
+            head.next = next;
             pos = pos.next;
         }
         return head;

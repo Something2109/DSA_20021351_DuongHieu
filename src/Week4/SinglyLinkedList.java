@@ -17,14 +17,6 @@ public class SinglyLinkedList {
         } else {
             this.tail.next = node;
         }
-
         this.tail = node;
-    }
-
-    static void printLinkedList(SinglyLinkedListNode head) {
-        while (head != null) {
-            System.out.println(head.data);
-            head = head.next;
-        }
     }
 }
