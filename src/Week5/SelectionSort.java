@@ -22,10 +22,11 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        int n = 1000;
+        int n = 2000;
+        double test = 100;
         long total = 0;
         int[] arr = new int[n];
-        for (int j = 0; j < 1000; j++) {
+        for (int j = 0; j < test; j++) {
             boolean[] check = new boolean[n];
             for (int i = 0; i < arr.length; i++) {
                 do {
@@ -36,6 +37,17 @@ public class SelectionSort {
 
             total += sort(arr);
         }
-        StdOut.print(total / 1000.0);
+        StdOut.println(total / test);
+        total = 0;
+        for (int j = 0; j < test; j++) {
+            boolean[] check = new boolean[n];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = (int) Math.round(Math.random() * (n - 1));
+                check[arr[i]] = true;
+            }
+
+            total += sort(arr);
+        }
+        StdOut.print(total / test);
     }
 }
