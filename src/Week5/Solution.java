@@ -1,6 +1,7 @@
 package Week5;
 import java.util.Scanner;
 import java.util.List;
+import java.util.ArrayList;
 
 import edu.princeton.cs.algs4.*;
 
@@ -153,8 +154,59 @@ public class Solution {
         return Math.min(h1Size, Math.min(h2Size, h3Size));
     }
 
+    public static int equalStacks2(List<Integer> h1, List<Integer> h2, List<Integer> h3) {
+        int balance = 0;
+        int h1Size = 0;
+        int h2Size = 0;
+        int h3Size = 0;
+        while (!h1.isEmpty() || !h2.isEmpty()) {
+            if (!h1.isEmpty()) {
+                h1Size += h1.get(h1.size() - 1);
+                h1.remove(h1.size() - 1);
+            } else if (h2Size > h1Size) {
+                break;
+            }
+            while (!h2.isEmpty() && h2Size < h1Size) {
+                h2Size += h2.get(h2.size() - 1);
+                h2.remove(h2.size() - 1);
+            }
+            if (h1Size == h2Size) {
+                while (!h3.isEmpty() && h3Size < h2Size) {
+                    h3Size += h3.get(h3.size() - 1);
+                    h3.remove(h3.size() - 1);
+                }
+                if (h3Size == h2Size) {
+                    balance = h3Size;
+                }
+            }
+        }
+        return balance;
+    }
+
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-        simpleTextEditor();
+        int size = scanner.nextInt();
+        StdOut.println(size);
+        ArrayList<Integer> h1 = new ArrayList<Integer>();
+        for (int i = 0; i < size; i++) {
+            Integer add = Integer.valueOf(scanner.nextInt());
+            h1.add(add);
+        }
+        StdOut.println(h1.size());
+        size = scanner.nextInt();
+        ArrayList<Integer> h2 = new ArrayList<Integer>();
+        for (int i = 0; i < size; i++) {
+            Integer add = Integer.valueOf(scanner.nextInt());
+            h2.add(add);
+        }
+        StdOut.println(h2.size());
+        size = scanner.nextInt();
+        ArrayList<Integer> h3 = new ArrayList<Integer>();
+        for (int i = 0; i < size; i++) {
+            Integer add = Integer.valueOf(scanner.nextInt());
+            h3.add(add);
+        }
+        StdOut.println(h3.size());
+        StdOut.print(equalStacks2(h1, h2, h3));
     } 
 }
