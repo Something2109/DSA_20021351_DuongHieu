@@ -1,0 +1,1 @@
+When the data size gets 2 time bigger: the time taken to sort increases 3 - 4 time;
