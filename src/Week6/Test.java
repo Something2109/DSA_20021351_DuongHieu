@@ -1,3 +1,4 @@
+package Week6;
 import java.io.PrintStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -66,48 +67,62 @@ public class Test {
         output.print("Insertion sort: ");
         StdOut.print("Insertion sort: ");
         Sort.insertionSort(Arrays.copyOf(arr, arr.length));
+        long total = 0;
         for (int i = 0; i < testTime; i++) {
             long time = Sort.insertionSort(Arrays.copyOf(arr, arr.length));
+            total += time;
             output.print(time + " ");
             StdOut.print(time + " ");
         } 
-        output.print("\n");
-        StdOut.print("\n");
+        total = Math.round((double) total / testTime);
+        output.print("\nAverage: " + total +"\n");
+        StdOut.print("\nAverage: " + total +"\n");
     }
 
     static void mergeTest(Integer[] arr, int testTime, PrintStream output) {
         output.print("Merge sort: ");
         StdOut.print("Merge sort: ");
         Sort.mergeSort(Arrays.copyOf(arr, arr.length));
+        long total = 0;
         for (int i = 0; i < testTime; i++) {
             long time = Sort.mergeSort(Arrays.copyOf(arr, arr.length));
+            total += time;
             output.print(time + " ");
             StdOut.print(time + " ");
         } 
-        output.print("\n");
-        StdOut.print("\n");
+        total = Math.round((double) total / testTime);
+        output.print("\nAverage: " + total +"\n");
+        StdOut.print("\nAverage: " + total +"\n");
     }
 
     static void quickTest(Integer[] arr, int testTime, PrintStream output) {
         output.print("Quick sort: ");
         StdOut.print("Quick sort: ");
         Sort.quickSort(Arrays.copyOf(arr, arr.length));
+        long total = 0;
         for (int i = 0; i < testTime; i++) {
             long time = Sort.quickSort(Arrays.copyOf(arr, arr.length));
+            total += time;
             output.print(time + " ");
             StdOut.print(time + " ");
         } 
-        output.print("\n");
-        StdOut.print("\n");
+        total = Math.round((double) total / testTime);
+        output.print("\nAverage: " + total +"\n");
+        StdOut.print("\nAverage: " + total +"\n");
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File(".\\src\\Sort.txt");
+        File file = new File(".\\src\\Week6\\Sort.txt");
         PrintStream output = new PrintStream(file);
         int testTime = 10;
         int n = 50000;
 
         test(n, testTime, output, "1Kints.txt");
+        test(n, testTime, output, "2Kints.txt");
+        test(n, testTime, output, "4Kints.txt");
+        test(n, testTime, output, "8Kints.txt");
+        test(n, testTime, output, "16Kints.txt");
+        test(n, testTime, output, "32Kints.txt");
         test(n, testTime, output, RANDOM);
         test(n, testTime, output, SORTED);
         test(n, testTime, output, REVERSED);
