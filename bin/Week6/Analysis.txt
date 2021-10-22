@@ -1,0 +1,9 @@
+When the size of the array is doubly increased:
+- Insertion Sort: processing time increased by around 4 times.
+- Merge Sort: processing time increased by around 2 times.
+- Randomized Quick Sort: processing time increased by around 2 times.
+
+With the same size of array:
+- Insertion Sort: processing time difference between sorted array and reverse-sorted one is pretty huge (0 - 15319)
+- Merge Sort: processing time has no big difference among all the situation (12 - 13ms)
+- Randomized Quick Sort: 

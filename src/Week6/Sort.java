@@ -1,5 +1,10 @@
 package Week6;
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Insertion;
+import edu.princeton.cs.algs4.Merge;
+import edu.princeton.cs.algs4.Quick;
+import edu.princeton.cs.algs4.StdOut;
+
 import java.util.Arrays;
 
 public class Sort {
