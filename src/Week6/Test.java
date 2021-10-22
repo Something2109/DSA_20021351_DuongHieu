@@ -63,6 +63,7 @@ public class Test {
         
         insertionTest(arr, testTime, output);
         mergeTest(arr, testTime, output);   
+        randomizedQuickTest(arr, testTime, output);
         quickTest(arr, testTime, output);
         output.println();
         StdOut.println();
@@ -107,6 +108,25 @@ public class Test {
         StdOut.print("\nAverage: " + total +"\n");
     }
 
+    static void randomizedQuickTest(Integer[] arr, int testTime, PrintWriter output) {
+        output.print("Randomized Quick sort: ");
+        StdOut.print("Randomized Quick sort: ");
+        long total = 0;
+        for (int i = 0; i < testTime + TEST_TRY; i++) {
+            Integer[] test = Arrays.copyOf(arr, arr.length);
+            long time = Sort.randomizedQuickSort(test);
+            
+            if (i >= TEST_TRY) {
+                total += time;
+                output.print(time + " ");
+            }
+            StdOut.print(time + " ");
+        } 
+        total = Math.round((double) total / testTime);
+        output.print("\nAverage: " + total +"\n");
+        StdOut.print("\nAverage: " + total +"\n");
+    }
+
     static void quickTest(Integer[] arr, int testTime, PrintWriter output) {
         output.print("Quick sort: ");
         StdOut.print("Quick sort: ");
@@ -128,19 +148,19 @@ public class Test {
 
     public static void main(String[] args) {
         int testTime = 10;
-        int n = 50000;
+        int n = 20000;
         try {
-            FileWriter fw = new FileWriter(".\\src\\Week6\\Result2.txt", true);
+            FileWriter fw = new FileWriter(".\\src\\Week6\\Result.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter output = new PrintWriter(bw);
 
-            test(n, testTime, output, "1Kints.txt");
-            test(n, testTime, output, "2Kints.txt");
-            test(n, testTime, output, "4Kints.txt");
-            test(n, testTime, output, "8Kints.txt");
-            test(n, testTime, output, "16Kints.txt");
-            test(n, testTime, output, "32Kints.txt");
-            test(n, testTime, output, RANDOM);
+            // test(n, testTime, output, "1Kints.txt");
+            // test(n, testTime, output, "2Kints.txt");
+            // test(n, testTime, output, "4Kints.txt");
+            // test(n, testTime, output, "8Kints.txt");
+            // test(n, testTime, output, "16Kints.txt");
+            // test(n, testTime, output, "32Kints.txt");
+            // test(n, testTime, output, RANDOM);
             test(n, testTime, output, SORTED);
             test(n, testTime, output, REVERSED);
             test(n, testTime, output, EQUAL);

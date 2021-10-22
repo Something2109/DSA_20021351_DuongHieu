@@ -23,9 +23,16 @@ public class Sort {
         return time;
     }
 
-    static long quickSort(Comparable[] a) {
+    static long randomizedQuickSort(Comparable[] a) {
         long start = System.currentTimeMillis();
         Quick.sort(a);
+        long time = System.currentTimeMillis() - start;
+        return time;
+    }
+
+    static long quickSort(Comparable[] a) {
+        long start = System.currentTimeMillis();
+        QuickSort.sort(a);
         long time = System.currentTimeMillis() - start;
         return time;
     }
@@ -83,7 +90,7 @@ public class Sort {
 
         insertionTime = insertionSort(Arrays.copyOf(arr, n));
         mergeTime = mergeSort(Arrays.copyOf(arr, n));
-        quickTime = quickSort(Arrays.copyOf(arr, n));
+        quickTime = randomizedQuickSort(Arrays.copyOf(arr, n));
     
         StdOut.println("Insertion run time: " + insertionTime);
         StdOut.println("Merge run time: " + mergeTime);
