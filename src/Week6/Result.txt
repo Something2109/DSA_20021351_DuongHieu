@@ -1,0 +1,80 @@
+1Kints.txt Arrays:
+Insertion sort: 4 5 13 4 4 5 5 5 6 5 
+Average: 6
+Merge sort: 2 2 1 1 1 1 0 1 1 1 
+Average: 1
+Quick sort: 6 12 1 1 0 1 0 0 0 0 
+Average: 2
+
+2Kints.txt Arrays:
+Insertion sort: 11 13 11 12 12 12 16 13 12 13 
+Average: 13
+Merge sort: 3 5 6 10 5 7 6 7 4 5 
+Average: 6
+Quick sort: 0 1 1 1 0 0 1 0 0 1 
+Average: 1
+
+4Kints.txt Arrays:
+Insertion sort: 50 46 47 46 45 46 45 45 47 61 
+Average: 48
+Merge sort: 16 20 17 15 20 29 29 16 23 12 
+Average: 20
+Quick sort: 1 5 2 3 2 1 1 1 1 9 
+Average: 3
+
+8Kints.txt Arrays:
+Insertion sort: 175 175 183 190 177 167 195 188 224 190 
+Average: 186
+Merge sort: 2 4 2 3 2 2 3 2 3 2 
+Average: 3
+Quick sort: 3 2 3 3 2 5 4 4 4 5 
+Average: 4
+
+16Kints.txt Arrays:
+Insertion sort: 694 827 802 792 807 818 798 784 814 805 
+Average: 794
+Merge sort: 5 5 5 5 6 6 7 5 5 6 
+Average: 6
+Quick sort: 5 4 4 4 4 5 4 6 6 4 
+Average: 5
+
+32Kints.txt Arrays:
+Insertion sort: 3167 3194 3187 3182 3246 3183 3208 3192 3212 3207 
+Average: 3198
+Merge sort: 12 14 12 15 11 12 12 14 11 13 
+Average: 13
+Quick sort: 11 11 11 10 10 11 10 10 14 11 
+Average: 11
+
+50k Arrays:
+Insertion sort: 8037 7997 7982 7873 7921 7921 7922 8017 8043 8005 
+Average: 7972
+Merge sort: 19 20 21 19 21 20 18 20 22 23 
+Average: 20
+Quick sort: 18 16 17 18 18 18 19 20 16 17 
+Average: 18
+
+Sorted Arrays:
+Insertion sort: 0 0 0 0 0 0 0 0 0 0 
+Average: 0
+Merge sort: 10 11 15 12 11 12 12 14 11 11 
+Average: 12
+Quick sort: 15 18 15 20 16 17 16 17 17 16 
+Average: 17
+
+Reverse Sorted Arrays:
+Insertion sort: 15324 15282 15295 15282 15295 15305 15277 15257 15282 15592 
+Average: 15319
+Merge sort: 13 11 15 13 13 12 10 14 14 13 
+Average: 13
+Quick sort: 16 14 15 15 15 17 16 14 15 15 
+Average: 15
+
+Equal Arrays:
+Insertion sort: 1 2 1 1 1 1 1 1 1 2 
+Average: 1
+Merge sort: 12 13 13 13 14 13 14 14 15 12 
+Average: 13
+Quick sort: 12 12 10 12 11 11 11 22 14 12 
+Average: 13
+
