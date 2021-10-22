@@ -2,8 +2,10 @@ When the size of the array is doubly increased:
 - Insertion Sort: processing time increased by around 4 times.
 - Merge Sort: processing time increased by around 2 times.
 - Randomized Quick Sort: processing time increased by around 2 times.
+- Quick Sort without randomized: processing time is likely to be less than randomized.
 
 With the same size of array:
-- Insertion Sort: processing time difference between sorted array and reverse-sorted one is pretty huge (0 - 15319)
-- Merge Sort: processing time has no big difference among all the situation (12 - 13ms)
-- Randomized Quick Sort: 
+- Insertion Sort: processing time difference between sorted array and random one is pretty huge (almost double the time).
+- Merge Sort: processing time has no big difference among all the situation.
+- Randomized Quick Sort: processing time is roughly the same as the Merge Sort's.
+- Quick Sort: Sorted Array and Reverse Sorted Array are easily causing StackOverFlow with a large size.
