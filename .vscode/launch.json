@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch DictionaryCommandline",
+            "request": "launch",
+            "mainClass": "DictionaryCommandline",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
             "name": "Launch Result",
             "request": "launch",
             "mainClass": "Week8.Result",
