@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ArrayString",
+            "request": "launch",
+            "mainClass": "Week8.ArrayString",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch JavaPriorityQueue",
+            "request": "launch",
+            "mainClass": "Week8.JavaPriorityQueue",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch TreeMapString",
+            "request": "launch",
+            "mainClass": "Week8.TreeMapString",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch DictionaryCommandline",
+            "request": "launch",
+            "mainClass": "Week8.DictionaryCommandline",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
             "name": "Launch DictionaryCommandline",
             "request": "launch",
             "mainClass": "DictionaryCommandline",
