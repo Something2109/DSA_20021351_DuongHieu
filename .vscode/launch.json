@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Deque",
+            "request": "launch",
+            "mainClass": "Deque",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch PercolationStats",
+            "request": "launch",
+            "mainClass": "PercolationStats",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Percolation",
+            "request": "launch",
+            "mainClass": "Percolation",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch RandomWord",
+            "request": "launch",
+            "mainClass": "RandomWord",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch HelloWorld",
+            "request": "launch",
+            "mainClass": "HelloWorld",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
             "name": "Launch ArrayString",
             "request": "launch",
             "mainClass": "Week8.ArrayString",
