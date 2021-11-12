@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ClosestNumber",
+            "request": "launch",
+            "mainClass": "Week9.ClosestNumber",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Point",
+            "request": "launch",
+            "mainClass": "Point",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch FastCollinearPoints",
+            "request": "launch",
+            "mainClass": "FastCollinearPoints",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch BruteCollinearPoints",
+            "request": "launch",
+            "mainClass": "BruteCollinearPoints",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Permutation",
+            "request": "launch",
+            "mainClass": "Permutation",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch RandomizedQueue",
+            "request": "launch",
+            "mainClass": "RandomizedQueue",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
             "name": "Launch Deque",
             "request": "launch",
             "mainClass": "Deque",
