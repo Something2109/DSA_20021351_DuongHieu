@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Solver1",
+            "request": "launch",
+            "mainClass": "Solver1",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solver2",
+            "request": "launch",
+            "mainClass": "Solver2",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Solver",
+            "request": "launch",
+            "mainClass": "Solver",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
+            "name": "Launch Board",
+            "request": "launch",
+            "mainClass": "Board",
+            "projectName": "DSA_20021351_DuongHieu_102fe5e4"
+        },
+        {
+            "type": "java",
             "name": "Launch ClosestNumber",
             "request": "launch",
             "mainClass": "Week9.ClosestNumber",

@@ -8,7 +8,7 @@ public class UFClient {
       while (!StdIn.isEmpty()) { 
          int p = StdIn.readInt(); 
          int q = StdIn.readInt(); 
-         if (!uf.connected(p, q)) {
+         if (uf.find(p) != uf.find(q)) {
             uf.union(p, q);
             StdOut.println(p + " " + q); 
          } 
