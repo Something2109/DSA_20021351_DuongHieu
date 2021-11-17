@@ -2,15 +2,16 @@ package Week2.Percolation;
 import edu.princeton.cs.algs4.*;
 
 public class Percolation3D {
-    int field, side;
-    UF uf;
+    int field;
+    int side;
+    WeightedQuickUnionUF uf;
     boolean[] tileStatus;
     int tileCount;
 
     Percolation3D(int n) {
         side = n;
         field = n * n * n + 2;
-        uf = new UF(field);
+        uf = new WeightedQuickUnionUF(field);
         tileStatus = new boolean[field];
         tileCount = 0;
         StdOut.println("Create field: " + side + ", " + field);
@@ -18,12 +19,12 @@ public class Percolation3D {
 
     public int run(String type) {
         int[] node;
-        if (type == "side") {
+        if (type.equals("side")) {
             node = sideSettingUp();
         } else {
             node = edgeSettingUp();
         }
-        while (!uf.connected(node[0], node[1])) {
+        while (uf.find(node[0]) != uf.find(node[1])) {
             addTile();
             tileCount ++;
         }

@@ -1,6 +1,5 @@
 package Week5;
 
-import java.util.Arrays;
 import edu.princeton.cs.algs4.StdOut;
 
 public class SelectionSort {
@@ -17,8 +16,7 @@ public class SelectionSort {
             arr[i] = arr[min];
             arr[min] = change;
         }
-        long end = System.currentTimeMillis() - start;
-        return end;
+        return System.currentTimeMillis() - start;
     }
 
     public static void main(String[] args) {
