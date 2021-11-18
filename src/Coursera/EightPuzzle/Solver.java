@@ -1,4 +1,4 @@
-
+package Coursera.EightPuzzle;
 import java.util.ArrayList;
 
 import edu.princeton.cs.algs4.In;
