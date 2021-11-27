@@ -111,19 +111,19 @@ public class BinarySearchTree {
                root.left = leftRotation(root.left);
                root = rightRotation(root);
            }
-       }
-       else if(balance < -1) {
-           if(height(root.right.right) >= height(root.right.left)) {
-               root = leftRotation(root);
-           }
-           else {
-               root.right = rightRotation(root.right);
-               root = leftRotation(root);
-           }
-       }
-       else {
-           root.ht = height(root);
-       }
+        }
+        else if(balance < -1) {
+            if(height(root.right.right) >= height(root.right.left)) {
+                root = leftRotation(root);
+            }
+            else {
+                root.right = rightRotation(root.right);
+                root = leftRotation(root);
+            }
+        }
+        else {
+            root.ht = height(root);
+        }
         
         return root;
     }
@@ -134,14 +134,14 @@ public class BinarySearchTree {
        root.ht = height(root);
        newRoot.ht = height(newRoot);
        return newRoot;
-   }
+    }
 
-   private static Node leftRotation(Node root) {
-       Node newRoot = root.right;
-       root.right = newRoot.left;
-       newRoot.left = root;
-       root.ht = height(root);
-       newRoot.ht = height(newRoot);
-       return newRoot;
-   }
+    private static Node leftRotation(Node root) {
+        Node newRoot = root.right;
+        root.right = newRoot.left;
+        newRoot.left = root;
+        root.ht = height(root);
+        newRoot.ht = height(newRoot);
+        return newRoot;
+    }
 }
