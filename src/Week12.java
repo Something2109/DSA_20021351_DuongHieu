@@ -1,7 +1,10 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Week12 {
 
@@ -100,30 +103,66 @@ public class Week12 {
         return result;
     }
 
-    //
-    public static int maxDegree(ArrayList<List<Integer>> graph, boolean[] connected) {
-        int degree = -1;
-        int node = 0;
-        for (int i = 0; i < graph.size(); i++) {
-            if (graph.get(i).size() > degree && !connected[i]) {
-                degree = graph.get(i).size();
-                node = i;
+    // Roads and Libraries
+    public static long roadsAndLibraries(int n, int c_lib, int c_road, List<List<Integer>> cities) {
+        long cost = 0;
+        if (c_lib <= c_road) {
+            cost = ((long) c_lib) * n;
+        } else {
+            int[] uf = new int[n];
+            HashMap<Integer, Integer> hs = new HashMap<>();
+            long road = 0;
+            long lib = 0;
+            for (int i = 0; i < n; i++) {
+                uf[i] = i;
+                hs.put(i, 1);
             }
-        }
-        return node;
-    }
-    
-    public static boolean citiesConnected(boolean[]connected) {
-        for (int i = 0; i < connected.length; i++) {
-            if (!connected[i]) {
-                return false;
+            for (List<Integer> edge : cities) {
+                int node1 = 0;
+                int node2 = 0;
+                for (Integer i : edge) {
+                    node2 = node1;
+                    node1 = i.intValue() - 1;
+                }
+                union(uf, hs, node1, node2);
             }
+            Set<Integer> keySet = hs.keySet();
+            for (Integer key : keySet) {
+                lib++;
+                road = road + hs.get(key) - 1;
+            }
+            cost = lib * c_lib + road * c_road;
         }
-        return true;
+        return cost;
     }
 
-    public static long roadsAndLibraries(int n, int c_lib, int c_road, List<List<Integer>> cities) {
-    // Write your code here
+    public static int find(int[] uf, int i) {
+        int query = i;
+        while (query != uf[query]) {
+            uf[query] = uf[uf[query]];    // path compression by halving
+            query = uf[query];
+        }
+        return query;
+    }
+
+    public static void union(int[] uf, Map<Integer, Integer> hs, int node1, int node2) {
+        node1 = find(uf, node1);
+        node2 = find(uf, node2);
+        if (node1 != node2) {
+            if (hs.get(node1) > hs.get(node2)) {
+                uf[node2] = node1;
+                hs.replace(node1, hs.get(node2) + hs.get(node1));
+                hs.remove(node2);
+            } else {
+                uf[node1] = node2;
+                hs.replace(node2, hs.get(node2) + hs.get(node1));
+                hs.remove(node1);
+            }
+        }
+    }
+
+    public static long roadsAndLibraries2(int n, int c_lib, int c_road, List<List<Integer>> cities) {
+        // Write your code here
         long cost = 0;
         if (c_lib < c_road) {
             cost = ((long) c_lib) * n;
@@ -153,7 +192,27 @@ public class Week12 {
         }
         return cost;
     }
-
+        
+    public static int maxDegree(ArrayList<List<Integer>> graph, boolean[] connected) {
+        int degree = -1;
+        int node = 0;
+        for (int i = 0; i < graph.size(); i++) {
+            if (graph.get(i).size() > degree && !connected[i]) {
+                degree = graph.get(i).size();
+                node = i;
+            }
+        }
+        return node;
+    }
+    
+    public static boolean citiesConnected(boolean[]connected) {
+        for (int i = 0; i < connected.length; i++) {
+            if (!connected[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
